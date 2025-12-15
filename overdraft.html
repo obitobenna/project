@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overdraft - Pecan Digital Bank</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #1C9FF3;
+            --light-blue: #E1F1FF;
+            --dark-text: #0A142F;
+            --dark-blue: #014068;
+            --gray-text: #808081;
+            --light-gray: #F4F4F4;
+            --lime-green: #DAFD83;
+            --orange: #F17829;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-text);
+            overflow-x: hidden;
+            background: white;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 1.5rem 0;
+            background: var(--primary-blue);
+        }
+
+        .navbar-brand {
+            font-size: 1rem;
+            color: white !important;
+            font-weight: 400;
+        }
+
+        .navbar-brand i {
+            color: white;
+        }
+
+        .brand-text {
+            font-size: 0.625rem;
+            display: block;
+            margin-top: -5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            margin: 0 1.25rem;
+            font-size: 1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .navbar .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .btn-get-started {
+            background: white;
+            color: var(--primary-blue);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .btn-get-started:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background: #1588d6;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-blue);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .btn-white:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--primary-blue);
+            padding: 4rem 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .hero-section p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-image-container {
+            position: relative;
+        }
+
+        .hero-illustration {
+            max-width: 100%;
+            border-radius: 20px;
+        }
+
+        .card-frame {
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 10px;
+            max-width: 340px;
+            margin: 0 auto;
+        }
+
+        /* Feature Sections */
+        .feature-section {
+            padding: 6rem 0;
+        }
+
+        .feature-section h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-section p {
+            font-size: 0.875rem;
+            line-height: 1.8;
+            color: #000;
+        }
+
+        .feature-image-wrapper {
+            position: relative;
+        }
+
+        .feature-image {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .orange-border {
+            position: absolute;
+            border: 5px solid rgba(241, 120, 41, 0.6);
+            border-radius: 20px;
+            width: 100%;
+            height: 80%;
+            top: 15%;
+            left: 10%;
+            z-index: -1;
+        }
+
+        /* Steps Section */
+        .steps-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .steps-section h2 {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 4rem;
+        }
+
+        .step-item {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+
+        .step-label {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .one {
+            font-weight: 500;
+            font-style: Medium;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0%;
+            text-align: center;
+
+        }
+
+        .step-description {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #000;
+            max-width: 236px;
+            margin: 0 auto;
+        }
+
+        .step-line {
+            border-top: 2px solid #D9D9D9;
+            margin: 2rem 0;
+        }
+
+        /* Download Section */
+        .download-section {
+            padding: 4rem 0;
+            background: white;
+            text-align: center;
+        }
+
+        .download-section h3 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-top: 6rem;
+            margin-left: 100px;
+        }
+
+
+        .app-badge small {
+            font-size: 0.625rem;
+            display: block;
+        }
+
+        .app-badge strong {
+            font-size: 1rem;
+            display: block;
+        }
+
+
+        /* Footer */
+        footer {
+            background: rgba(229, 230, 231, 0.9);
+            padding: 4rem 0 2rem;
+        }
+
+        footer h5 {
+            color: var(--primary-blue);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        footer ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: var(--dark-text);
+            opacity: 0.7;
+            line-height: 1.5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(217, 217, 217, 0.9);
+            margin-top: 2rem;
+            padding-top: 2rem;
+        }
+
+        .footer-logos img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+
+        .beta-badge {
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            color: var(--lime-green);
+            line-height: 40px;
+            margin: 0 0.25rem;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+
+            .hero-section h1,
+            .feature-section h2,
+            .steps-section h2 {
+                font-size: 2rem;
+            }
+
+            .orange-border {
+                display: none;
+            }
+
+            .step-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf"></i> <strong>pecan</strong>
+                <span class="brand-text">Pecantrust Microfinance Bank</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="personal-account.html">Personal Account</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="featuresDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Features
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+                            <li><a class="dropdown-item" href="features.html">Debit Card</a></li>
+                            <li><a class="dropdown-item" href="insurance.html">Insurance</a></li>
+                            <li><a class="dropdown-item" href="overdraft.html">Overdraft</a></li>
+                            <li><a class="dropdown-item" href="budgeting.html">Budgeting</a></li>
+                            <li><a class="dropdown-item" href="personal-loans.html">Personal Loans</a></li>
+                            <li><a class="dropdown-item" href="business-loans.html">Business Loans</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="company.html">Company</a>
+                    </li>
+                </ul>
+                <div class="d-lg-none mt-3">
+                    <button class="btn btn-get-started w-100" onclick="window.location.href='form.html'">Get
+                        Started</button>
+                </div>
+            </div>
+            <button class="btn btn-get-started d-none d-lg-block" onclick="window.location.href='form.html'">Get
+                Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>Extra cash to meet your needs</h1>
+                    <p>Getting a little extra money, when you need it, should never be a problem. Our overdraft product
+                        ensures you're never blind-sided by those extra costs you never saw coming. From flexible
+                        repayment options to competitive interest rates, we're here to support you every step of the
+                        way.</p>
+                    <button class="btn btn-white" onclick="window.location.href='form.html'">Get started now</button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-container mt-4 mt-lg-0">
+                        <div class="card-frame">
+                            <img src="img/overdraft.png" alt="Extra Cash" class="hero-illustration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Get Overdraft Section -->
+    <section class="feature-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 order-lg-1 order-1 mb-4 mb-lg-0">
+                    <div class="feature-image-wrapper position-relative">
+                        <div class="orange-border"></div>
+                        <div class="feature-image">
+                            <img src="img/overdraft1.png" alt="Overdraft" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 offset-lg-1 order-lg-2 order-2">
+                    <h2>How to get a Pecan Overdraft</h2>
+                    <p>
+                        When you open and use your Pecan bank account frequently, you may be offered
+                        an overdraft automatically or you can apply for an overdraft easily in-app
+                        and we will check with a credit agency to ensure that the overdraft is affordable
+                        and manageable for you as at the period of your application.
+                    </p>
+                    <button class="btn btn-primary" onclick="window.location.href='form.html'">Get started now</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps-section">
+        <div class="container">
+            <h2>Open a Pecan savings account today and enjoy branch-less banking at its finest</h2>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-item">
+                        <h3 class="one">Step</h3>
+                        <img src="img/vector1.png" alt="1" class="step-item">
+                        <img src="img/Vector 12.png" alt="" class="step-item">
+                        <p class="step-description">Click the button below to download the app and register with just
+                            your phone number.</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-item">
+                        <h3 class="one">Step</h3>
+                        <img src="img/vector2.png" alt="2" class="step-item">
+                        <img src="img/Vector 12.png" alt="" class="step-item">
+                        <p class="step-description">We'll send a verification code for you to enter on the app.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-item">
+                        <h3 class="one">Step</h3>
+                        <img src="img/vector3.png" alt="3" class="step-item">
+                        <img src="img/Vector 12.png" alt="" class="step-item">
+                        <p class="step-description">Create an account by telling us a bit about yourself: your name,
+                            email address and your BVN.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-item">
+                        <h3 class="one">Step</h3>
+                        <img src="img/vector4.png" alt="4" class="step-item">
+                        <img src="img/Vector 12.png" alt="" class="step-item">
+                        <p class="step-description">Finally, record a quick selfie video and take a photo of your ID so
+                            we can verify everything. And that's it!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download App Section -->
+    <section class="download-section">
+        <div class="container">
+            <h3>Download mypecanbank App</h3>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="img/pecan.png" alt="App" class="phone-mockup">
+                </div>
+                <div class="col-lg-4">
+                    <a href="#" class="app-badge d-block mb-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                            alt="">
+                    </a>
+                    <a href="#" class="app-badge d-block">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                            alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 logo-shift">
+                    <img src="img/Pecan-Trust 1.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <a class="navbar-brand" href="index.html"
+                        style="font-size: 1.5rem; color: var(--primary-blue) !important;">
+                        <i class="fas fa-leaf"></i> <strong>pecan</strong><sup
+                            style="font-size: 0.6rem; top: -1em;">TM</sup>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-3 mb-4">
+                    <h5 class="mb-3">Products</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="personal-account.html">Personal Accounts<br><span class="beta-badge">(Available in
+                                    Beta)</span></a></li>
+                        <li><a href="#">Business Accounts<br><span class="beta-badge">(coming soon)</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 mb-4">
+                    <h5 class="mb-3">Features</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html">Debit Card</a></li>
+                        <li><a href="insurance.html">Insurance</a></li>
+                        <li><a href="overdraft.html">Overdraft</a></li>
+                        <li><a href="budgeting.html">Budgeting</a></li>
+                        <li><a href="personal-loans.html">Personal Loans</a></li>
+                        <li><a href="business-loans.html">Business Loans</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 mb-4">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="company.html">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 mb-4">
+                    <h5 class="mb-3">Help</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="contact.html">Get in Touch</a></li>
+                        <li><a href="#">Common Questions</a></li>
+                        <li><a href="#">Antifraud</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-1 col-md-3 mb-4">
+                    <h5 class="mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row mt-4 align-items-end">
+                <div class="col-lg-9 mb-4">
+                    <p class="footer-text mb-2">My Pecan Bank or "Pecan" is a digital bank powered by Pecantrust
+                        Microfinance
+                        Bank (RC: 1XXXXX), duly licensed by the Central Bank of Nigeria (CBN) and the NDIC.</p>
+                    <p class="footer-text mb-2">The content on this website does not constitute a complete description
+                        of
+                        Pecan Bank's offerings and services. By using this website, you accept our Terms of Use and
+                        Privacy Policy.</p>
+                    <p class="footer-text mb-0">Google Play and the Google Play logo are trademarks of Google LLC.
+                        Apple, the
+                        Apple logo, and iPhone are trademarks of Apple Inc. registered in the U.S.</p>
+                </div>
+                <div class="col-lg-3 mb-4 text-lg-end">
+                    <img src="https://ndic.gov.ng/wp-content/uploads/2021/03/NDIC-LOGO.png" alt="NDIC Logo"
+                        style="height: 50px;">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="footer-text mb-3">© 2023 Pecan Digital Bank. All rights reserved.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

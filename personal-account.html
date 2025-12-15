@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Account - Pecan Digital Bank</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #1C9FF3;
+            --light-blue: #E1F1FF;
+            --dark-text: #0A142F;
+            --gray-text: #808081;
+            --light-gray: #F4F4F4;
+            --lime-green: #DAFD83;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-text);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 1.5rem 0;
+            background: white;
+        }
+
+        .navbar-brand {
+            font-size: 1rem;
+            color: var(--dark-text) !important;
+            font-weight: 400;
+        }
+
+        .navbar-brand i {
+            color: var(--primary-blue);
+        }
+
+        .brand-text {
+            font-size: 0.625rem;
+            display: block;
+            margin-top: -5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--gray-text);
+            margin: 0 1.25rem;
+            font-size: 1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .navbar .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background: #1588d6;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            max-width: 450px;
+        }
+
+        .phone-frame {
+            border: 3px solid #000;
+            border-radius: 30px;
+            padding: 10px;
+            background: white;
+            max-width: 300px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .phone-frame img {
+            border-radius: 25px;
+            width: 100%;
+        }
+
+        .checkmark-badge {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 20px rgba(28, 159, 243, 0.4);
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+        }
+
+        /* Feature Sections */
+        .feature-section {
+            padding: 6rem 0;
+        }
+
+        .feature-section.bg-light {
+            background: #F8F9FA;
+        }
+
+        .feature-section h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-section p {
+            font-size: 0.875rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .feature-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .map-section {
+            padding: 6rem 0;
+        }
+
+        .map {
+            background: #1C9FF3;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-top: 99px;
+            padding-bottom: 98px;
+            color: #fff;
+            margin-bottom: 100px;
+            height: 447px;
+        }
+
+        .map-text h2 {
+            font-weight: 500;
+            font-size: 48px;
+            line-height: 60px;
+            letter-spacing: 0%;
+            margin-bottom: 30px;
+
+        }
+
+        .map-text p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 25px;
+            letter-spacing: 0%;
+        }
+
+
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .faq-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #000;
+        }
+
+        /* Custom Accordion Styles */
+        .custom-accordion {
+            border: none;
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .accordion-item.collapsed-item {
+            border: none;
+        }
+
+        .accordion-item.expanded-item {
+            border: 2px solid var(--primary-blue);
+            background: rgba(225, 241, 255, 0.3);
+        }
+
+        .accordion-button {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 1.5rem 1.25rem;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #000;
+            position: relative;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: transparent;
+            color: #000;
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        .accordion-button:hover {
+            background: transparent;
+        }
+
+        /* Hide default arrow */
+        .accordion-button::after {
+            display: none;
+        }
+
+        /* Custom Plus/Close Icons */
+        .accordion-icon {
+            position: absolute;
+            right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .accordion-button.collapsed .accordion-icon {
+            background: #E5E5E5;
+            color: #999;
+        }
+
+        .accordion-button:not(.collapsed) .accordion-icon {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .accordion-button.collapsed .icon-minus,
+        .accordion-button:not(.collapsed) .icon-plus {
+            display: none;
+        }
+
+        .accordion-button.collapsed .icon-plus,
+        .accordion-button:not(.collapsed) .icon-minus {
+            display: block;
+        }
+
+        .accordion-body {
+            padding: 0 1.25rem 1.5rem 1.25rem;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: #000;
+        }
+
+        .accordion-body p {
+            margin-bottom: 1rem;
+        }
+
+        .accordion-body ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-body ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .accordion-body ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: #000;
+        }
+
+        /* Collapsed Item Border */
+        .collapsed-item {
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        @media (max-width: 768px) {
+            .faq-title {
+                font-size: 2rem;
+            }
+
+            .accordion-button {
+                padding-right: 3.5rem;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            text-align: center;
+            background: var(--light-gray);
+            position: relative;
+            margin-top: 100px;
+        }
+
+        .one1 {
+            background-color: #fff;
+            border-radius: 10px;
+
+
+        }
+
+        .cta-section h2 {
+            font-size: 1.875rem;
+            max-width: 500px;
+            margin: 0 auto 1rem;
+        }
+
+        .cta-section p {
+            max-width: 400px;
+            margin: 0 auto 2rem;
+            color: var(--gray-text);
+        }
+
+        .plant-decor {
+            position: absolute;
+            opacity: 0.2;
+            width: 243px;
+            height: 370px;
+            opacity: 1;
+            top: 0;
+        }
+
+        .plant-left {
+            left: 15%;
+            bottom: 25%;
+        }
+
+        .plant-right {
+            right: 15%;
+            bottom: 25%;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(229, 230, 231, 0.9);
+            padding: 4rem 0 2rem;
+            margin-top: 30px;
+        }
+
+        footer h5 {
+            color: var(--primary-blue);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        footer ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: var(--dark-text);
+            opacity: 0.7;
+            line-height: 1.5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(217, 217, 217, 0.9);
+            margin-top: 2rem;
+            padding-top: 2rem;
+        }
+
+        .footer-logos img {
+            height: 50px;
+            margin-right: 1rem;
+        }
+
+        .beta-badge {
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            color: var(--lime-green);
+            line-height: 40px;
+            margin: 0 0.25rem;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+
+            .hero-content h1,
+            .feature-section h2 {
+                font-size: 2rem;
+            }
+
+            .map-overlay {
+                display: none;
+            }
+
+            .checkmark-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-leaf"></i> <strong>pecan</strong>
+                <span class="brand-text">Pecantrust Microfinance Bank</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="personal-account.html">Personal Account</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="featuresDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Features
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+                            <li><a class="dropdown-item" href="features.html">Debit Card</a></li>
+                            <li><a class="dropdown-item" href="insurance.html">Insurance</a></li>
+                            <li><a class="dropdown-item" href="overdraft.html">Overdraft</a></li>
+                            <li><a class="dropdown-item" href="budgeting.html">Budgeting</a></li>
+                            <li><a class="dropdown-item" href="personal-loans.html">Personal Loans</a></li>
+                            <li><a class="dropdown-item" href="business-loans.html">Business Loans</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="company.html">Company</a>
+                    </li>
+                </ul>
+                <div class="d-lg-none mt-3">
+                    <button class="btn btn-get-started w-100" onclick="window.location.href='form.html'">Get
+                        Started</button>
+                </div>
+            </div>
+            <button class="btn btn-get-started d-none d-lg-block" onclick="window.location.href='form.html'">Get
+                Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <div class="phone-frame">
+                            <img src="img/phone.png" alt="Mobile Banking App">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1>Make the most out<br>of your money</h1>
+                        <p>Open a savings account with all the tools you need to make better and smarter money moves.
+                            Enjoy cashback and rewards on your everyday spends.</p>
+                        <button class="btn btn-primary" onclick="window.location.href='form.html'">Get started
+                            now</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Instant Account Opening Section -->
+    <section class="feature-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-1 order-2">
+                    <h2>Instant account<br>opening</h2>
+                    <p>Open a savings account in less than 5 minutes, all on your phone. No paperwork or branch visits
+                        required. Get instant access to your account and start enjoying our features right away.</p>
+                    <button class="btn btn-primary" onclick="window.location.href='form.html'">Get started now</button>
+                </div>
+                <div class="col-lg-5 offset-lg-1 order-lg-2 order-1 mb-4 mb-lg-0">
+                    <div class="feature-image">
+                        <img src="img/account.png" alt="Instant Account Opening">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branchless Section -->
+    <section class="feature-section bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="feature-image">
+                        <img src="img/customer-service.png" alt="Customer Service">
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <h2>Branchless,<br>no delay</h2>
+                    <p>We're a fully digital bank designed with you in mind. Get everything you can do at a branch right
+                        on your phone - no queues, no stress, no waiting. Transfer funds, manage your money, and get
+                        24/7 customer support from wherever you are.</p>
+                    <button class="btn btn-primary" onclick="window.location.href='form.html'">Get started now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 perfect-banner map">
+                    <img src="img/map.png" alt="map" class="img-fluid">
+                </div>
+                <div class="col-lg-6 order-2 order-lg-2 map-text">
+                    <h2>Perfect for Nigerians in<br>Nigeria and diaspora</h2>
+                    <p>
+                        Whether you're in Lagos, London, or Los Angeles, Pecan keeps you connected
+                        to your finances. Send money home, receive payments, manage your accounts
+                        and stay in control of your money no matter where life takes you.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="faq-section">
+        <h1 class="faq-title">FAQs</h1>
+
+        <div class="accordion custom-accordion" id="faqAccordion">
+            <!-- Question 1 - Expanded -->
+            <div class="accordion-item expanded-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
+                        aria-expanded="true">
+                        How do I create a Pecan account?
+                        <span class="accordion-icon">
+                            <span class="icon-plus">+</span>
+                            <span class="icon-minus">×</span>
+                        </span>
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <p>Start by downloading our free mobile app from the App Store or Google Play Store. Once it's
+                            installed, all you need to open an online money account is:</p>
+                        <ul>
+                            <li>An email address and phone number</li>
+                            <li>An ID document, like your voter's card and NIMC slip (NIN)</li>
+                        </ul>
+                        <p>We'll ask you for a short video selfie in the app to confirm your identity and protect you
+                            from fraud. Once that's done, all that's left is to start using your app to spend, stash and
+                            receive money.</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!-- Question 2 - Collapsed -->
+            <div class="accordion-item collapsed-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq2">
+                        Will I need proof of address to create an online money account?
+                        <span class="accordion-icon">
+                            <span class="icon-plus">+</span>
+                            <span class="icon-minus">×</span>
+                        </span>
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <p>No, you don't need proof of address to create your Pecan account. We only require your email
+                            address, phone number, and a valid ID document to get started.</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!-- Question 3 - Collapsed -->
+            <div class="accordion-item collapsed-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq3">
+                        How soon can I start using an online money account?
+                        <span class="accordion-icon">
+                            <span class="icon-plus">+</span>
+                            <span class="icon-minus">×</span>
+                        </span>
+                    </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <p>You can start using your Pecan account immediately after verification. The entire sign-up
+                            process takes less than 5 minutes, and once approved, you'll have instant access to all
+                            features including transfers, bill payments, and your virtual debit card.</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!-- Question 4 - Collapsed -->
+            <div class="accordion-item collapsed-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq4">
+                        How can a customer make deposits into their savings account?
+                        <span class="accordion-icon">
+                            <span class="icon-plus">+</span>
+                            <span class="icon-minus">×</span>
+                        </span>
+                    </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <p>You can make deposits into your Pecan savings account through several convenient methods:</p>
+                        <ul>
+                            <li>Bank transfers from other accounts</li>
+                            <li>Card funding through the app</li>
+                            <li>Direct deposits from employers</li>
+                            <li>Cash deposits at designated partner locations</li>
+                        </ul>
+                        <p>All deposits are processed instantly and reflect in your account immediately.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section position-relative">
+        <div class="container">
+            <img src="img/path.png" alt="plant" class="plant-decor plant-left">
+            <div class="one1">
+                <h2>Sign up to open<br>a savings account</h2>
+                <p>Join Pecan today to get your physical or virtual debit card. Download our app to get started.</p>
+                <button class="btn btn-primary" onclick="window.location.href='form.html'">Get started now</button>
+            </div>
+            <img src="img/path.png" alt="plant" class="plant-decor plant-right">
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <a class="navbar-brand" href="index.html"
+                        style="font-size: 1.5rem; color: var(--primary-blue) !important;">
+                        <i class="fas fa-leaf"></i> <strong>pecan</strong><sup
+                            style="font-size: 0.6rem; top: -1em;">TM</sup>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-3 mb-4">
+                    <h5 class="mb-3">Products</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="personal-account.html">Personal Accounts<br><span class="beta-badge">(Available in
+                                    Beta)</span></a></li>
+                        <li><a href="#">Business Accounts<br><span class="beta-badge">(coming soon)</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 mb-4">
+                    <h5 class="mb-3">Features</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html">Debit Card</a></li>
+                        <li><a href="insurance.html">Insurance</a></li>
+                        <li><a href="overdraft.html">Overdraft</a></li>
+                        <li><a href="budgeting.html">Budgeting</a></li>
+                        <li><a href="personal-loans.html">Personal Loans</a></li>
+                        <li><a href="business-loans.html">Business Loans</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 mb-4">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="company.html">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 mb-4">
+                    <h5 class="mb-3">Help</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="contact.html">Get in Touch</a></li>
+                        <li><a href="#">Common Questions</a></li>
+                        <li><a href="#">Antifraud</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-1 col-md-3 mb-4">
+                    <h5 class="mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row mt-4 align-items-end">
+                <div class="col-lg-9 mb-4">
+                    <p class="footer-text mb-2">My Pecan Bank or "Pecan" is a digital bank powered by Pecantrust
+                        Microfinance
+                        Bank (RC: 1XXXXX), duly licensed by the Central Bank of Nigeria (CBN) and the NDIC.</p>
+                    <p class="footer-text mb-2">The content on this website does not constitute a complete description
+                        of
+                        Pecan Bank's offerings and services. By using this website, you accept our Terms of Use and
+                        Privacy Policy.</p>
+                    <p class="footer-text mb-0">Google Play and the Google Play logo are trademarks of Google LLC.
+                        Apple, the
+                        Apple logo, and iPhone are trademarks of Apple Inc. registered in the U.S.</p>
+                </div>
+                <div class="col-lg-3 mb-4 text-lg-end">
+                    <img src="https://ndic.gov.ng/wp-content/uploads/2021/03/NDIC-LOGO.png" alt="NDIC Logo"
+                        style="height: 50px;">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="footer-text mb-3">© 2023 Pecan Digital Bank. All rights reserved.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
