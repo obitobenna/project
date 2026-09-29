@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Registry Admin</title><link rel="stylesheet" href="style.css">
+<style>.chart div{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:13px}.chart b{width:40px}.chart i{display:block;height:18px;background:#1d4ed8;border-radius:3px}</style></head><body>
+<div class="topbar"><div class="brand"><div class="logo">SCS</div><div>STUDENT CLEARANCE SYSTEM<small>Registry Administrator</small></div></div><div class="user">Admin: <b>The Registrar</b> <span class="btn out sm">Logout</span></div></div>
+<div class="layout"><nav class="side"><a class="on">Dashboard</a><a>Manage Students</a><a>Manage Officers</a><a>Manage Clearance Units</a><a>Final Approval</a><a>Reports</a><a>Settings</a><a>Logout</a></nav>
+<div class="main"><h1>Registry Administrator Dashboard</h1>
+<div class="stats"><div class="stat"><span>Total Students</span><b>1,250</b></div><div class="stat" style="border-color:#1e8e3e"><span>Fully Cleared</span><b>830</b></div><div class="stat" style="border-color:#f59e0b"><span>Pending</span><b>395</b></div><div class="stat" style="border-color:#c0392b"><span>Rejected</span><b>25</b></div></div>
+<div style="display:grid;grid-template-columns:1.6fr 1fr;gap:18px">
+<div><h2 style="margin-top:0">Students Awaiting Final Registry Approval</h2>
+<table><tr><th>S/N</th><th>Matric No</th><th>Name</th><th>Units Cleared</th><th>Action</th></tr>
+<tr><td>1</td><td>CSC/2020/005</td><td>Musa Ali</td><td>6/6</td><td><span class="btn ok sm">Final Approve</span></td></tr>
+<tr><td>2</td><td>BIO/2020/021</td><td>Grace Eze</td><td>6/6</td><td><span class="btn ok sm">Final Approve</span></td></tr>
+<tr><td>3</td><td>MTH/2020/030</td><td>Fatima Yusuf</td><td>6/6</td><td><span class="btn ok sm">Final Approve</span></td></tr>
+<tr><td>4</td><td>PHY/2020/011</td><td>Emeka Obi</td><td>6/6</td><td><span class="btn ok sm">Final Approve</span></td></tr></table></div>
+<div class="card chart"><h2 style="margin-top:0">Clearance by Department (%)</h2>
+<div><b>CSC</b><i style="width:170px"></i>78%</div><div><b>MTH</b><i style="width:130px"></i>60%</div><div><b>BIO</b><i style="width:155px"></i>71%</div><div><b>PHY</b><i style="width:100px"></i>46%</div><div><b>CHM</b><i style="width:140px"></i>65%</div></div></div>
+<div style="margin-top:18px"><span class="btn">Generate Report (PDF)</span> <span class="btn gold">Export to Excel</span></div>
+</div></div></body></html>
